@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+    <meta charset="UTF-8">
+    <title>SignIn Page</title>
+</head>
+<body>
+<div>
+    <div th:if="${param.error}" class="alert alert-danger">
+        Invalid Email and Password
+    </div>
+    <div th:if="${param.logout}" class="alert alert-danger">
+        You have been logout
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form class="p-3 mt-3" th:action="@{/signin}" action="#" method="post">
+                        <div class="form-field d-flex align-items-center">
+                            <span class="far fa-user"></span>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Email" required="" autofocus="">
+                        </div>
+                        <br>
+                        <div class="form-field d-flex align-items-center">
+                            <span class="fas fa-key"></span>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <div>
+                            <button class="btn btn-success">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::body})">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <form th:action="@{/do_register}" method="POST" th:object="${user}">
+                    <div class="form-group">
+                        <h2>Create account</h2>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="name_field">Your name</label>
+                        <input
+                                name="name"
+                                type="text"
+                                class="form-control"
+                                id="name_field"
+                                aria-describedby="emailHelp"
+                                th:value="${user.name}"
+                                required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="email_field">Email</label>
+                        <input
+                                name="email"
+                                type="email"
+                                class="form-control"
+                                id="email_field"
+                                aria-describedby="emailHelp"
+                                th:value="${user.email}"
+                                required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password_field">Password</label>
+                        <input name="password" type="password" class="form-control" id="password_field" required />
+
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button id="signupSubmit" type="submit" class="btn btn-info btn-block">Create your account</button>
+                    </div>
+                    <p></p>Already have an account? <a href="/signin">Sign in</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
